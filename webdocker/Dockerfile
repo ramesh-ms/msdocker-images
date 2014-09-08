@@ -40,10 +40,11 @@ ENV PATH /opt/rubies/jruby/bin:$PATH
 
 
 #Install ffmepg
-RUN add-apt-repository ppa:jon-severinsson/ffmpeg
-RUN apt-get update
-RUN apt-get install -y ffmpeg
-RUN apt-get install -y frei0r-plugins
+RUN wget -qO ~/ffmpeg.tar.gz http://johnvansickle.com/ffmpeg/releases/ffmpeg-2.3.2-64bit-static.tar.bz2
+RUN tar xf ~/ffmpeg.tar.gz && cd && rm -rf ffmpeg-2.3.2-64bit-static/{manpages,presets,readme.txt}
+RUN cp ~/ffmpeg-2.3.2-64bit-static/* ~/bin
+RUN chmod 700 ~/bin/{ffmpeg,ffprobe,ffmpeg-10bit,qt-faststart}
+RUN cd && rm -rf ffmpeg{.tar.gz,-2.3.2-64bit-static}
 
 #Install imagemagick
 RUN apt-get install -y imagemagick
@@ -58,6 +59,10 @@ RUN apt-get install -y rabbitmq-server
 
 #Install Sphinx
 RUN  apt-get install -y sphinxsearch
+
+
+#Expose port numbers
+EXPOSE 3000 8080 5800
 
 
 # Add files.
