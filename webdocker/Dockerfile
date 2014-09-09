@@ -61,10 +61,10 @@ RUN apt-get install -y rabbitmq-server
 RUN  apt-get install -y sphinxsearch
 
 #insalling some imp Dependencey
-RUN apt-get install  libxslt-dev libxml2-dev
-RUN apt-get install  libmysqlclient-dev
+RUN apt-get install -y libxslt-dev libxml2-dev
+RUN apt-get install -y libmysqlclient-dev
 RUN apt-get install  libpq-dev
-RUN gem install prince-ruby
+#RUN gem install prince-ruby
 
 #Expose port numbers
 EXPOSE 3000 8080 5800
