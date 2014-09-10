@@ -63,7 +63,7 @@ RUN  apt-get install -y sphinxsearch
 #insalling some imp Dependencey
 RUN apt-get install -y libxslt-dev libxml2-dev
 RUN apt-get install -y libmysqlclient-dev
-RUN apt-get install  libpq-dev
+RUN apt-get install -y libpq-dev
 #RUN gem install prince-ruby
 
 #Expose port numbers
