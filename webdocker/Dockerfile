@@ -60,6 +60,9 @@ RUN apt-get install -y rabbitmq-server
 #Install Sphinx
 RUN  apt-get install -y sphinxsearch
 
+#Install Nano
+RUN apt-get install -y nano
+
 #insalling some imp Dependencey
 RUN apt-get install -y libxslt-dev libxml2-dev
 RUN apt-get install -y libmysqlclient-dev
