@@ -31,11 +31,12 @@ RUN \
 RUN \curl -sSL https://get.rvm.io | bash -s stable --ruby
 RUN /bin/bash -l -c rvm requirements
 RUN /bin/bash -l -c rvm install 2.1.2
+RUN /bin/bash -l -c rvm install jruby
 
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN /bin/bash -l -c rvm use 2.1.2 --default
 #Install jruby
-RUN rvm install -y jruby
+#RUN rvm install -y jruby
 #rvm install jruby
 #ENV PATH /opt/rubies/jruby/bin:$PATH
 
