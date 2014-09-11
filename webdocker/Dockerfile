@@ -35,14 +35,17 @@ RUN /bin/bash -l -c rvm install 2.1.2
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN /bin/bash -l -c rvm use 2.1.2 --default
 #Install jruby
-rvm install jruby
-ENV PATH /opt/rubies/jruby/bin:$PATH
+RUN rvm get stable && rvm install jruby
+#rvm install jruby
+#ENV PATH /opt/rubies/jruby/bin:$PATH
 
 
 #Install ffmepg
+RUN wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-2.3.3-64bit-static.tar.bz2
+
 #RUN wget -qO ~/ffmpeg.tar.gz http://johnvansickle.com/ffmpeg/releases/ffmpeg-2.3.2-64bit-static.tar.bz2
-#RUN tar xf ~/ffmpeg.tar.gz && cd && rm -rf ffmpeg-2.3.2-64bit-static/{manpages,presets,readme.txt}
-#RUN cp ~/ffmpeg-2.3.2-64bit-static/* ~/bin
+RUN tar xf ~/ffmpeg-2.3.3-64bit-static.tar.bz2 && cd && rm -rf ffmpeg-2.3.3-64bit-static/{manpages,presets,readme.txt}
+RUN cp ~/ffmpeg-2.3.3-64bit-static/* ~/bin
 #RUN chmod 700 ~/bin/{ffmpeg,ffprobe,ffmpeg-10bit,qt-faststart}
 #RUN cd && rm -rf ffmpeg{.tar.gz,-2.3.2-64bit-static}
 
