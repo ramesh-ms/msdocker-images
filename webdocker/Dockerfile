@@ -42,12 +42,9 @@ RUN rvm get stable && rvm install jruby
 
 #Install ffmepg
 RUN wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-2.3.3-64bit-static.tar.bz2
-
-#RUN wget -qO ~/ffmpeg.tar.gz http://johnvansickle.com/ffmpeg/releases/ffmpeg-2.3.2-64bit-static.tar.bz2
-RUN tar xf ~/ffmpeg-2.3.3-64bit-static.tar.bz2 && cd && rm -rf ffmpeg-2.3.3-64bit-static/{manpages,presets,readme.txt}
-RUN cp ~/ffmpeg-2.3.3-64bit-static/* ~/bin
-#RUN chmod 700 ~/bin/{ffmpeg,ffprobe,ffmpeg-10bit,qt-faststart}
-#RUN cd && rm -rf ffmpeg{.tar.gz,-2.3.2-64bit-static}
+RUN tar xvf ~/ffmpeg-2.3.3-64bit-static.tar.bz2
+RUN cp ~/ffmpeg-2.3.3-64bit-static/ffmpeg ~/bin
+RUN cp ~/ffmpeg-2.3.3-64bit-static/ffprobe ~/bin
 
 #Install imagemagick
 RUN apt-get install -y imagemagick
