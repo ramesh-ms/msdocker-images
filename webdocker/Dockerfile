@@ -35,7 +35,7 @@ RUN /bin/bash -l -c rvm install 2.1.2
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN /bin/bash -l -c rvm use 2.1.2 --default
 #Install jruby
-RUN rvm get stable && rvm install -y jruby
+RUN rvm install -y jruby
 #rvm install jruby
 #ENV PATH /opt/rubies/jruby/bin:$PATH
 
